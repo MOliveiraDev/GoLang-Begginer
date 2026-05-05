@@ -1,13 +1,27 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
 
 	var idade int
 	fmt.Println("Digite a sua idade:")
-	fmt.Scanln(&idade)
-	
+
+	//Verificando se a entrada é um número inteiro válido
+	if _, err := fmt.Fscan(os.Stdin, &idade); err != nil {
+		fmt.Println("Entrada inválida. Por favor, digite um número inteiro.")
+		return
+	}
+
+	//Verificando se a idade é um valor positivo
+	if idade < 0 {
+		fmt.Println("Idade inválida. Por favor, insira um valor positivo.")
+		return
+	}
+
 	// Estrutura de controle if-else para verificar a idade
 	if idade >= 18 {
 		fmt.Println("Você é maior de idade.")
