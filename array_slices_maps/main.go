@@ -20,4 +20,16 @@ func main() {
 	pontuacoes := []float64{85.5, 90.0, 78.3} // Slice de float64 com 3 elementos
 	fmt.Println("Slice de pontuações:", pontuacoes, "\n Quantidade:", len(pontuacoes))
 
+	// Fazendo um menu de preços usando map
+	menu := map[string]float64{
+		"Pizza":  25.0,
+		"Burger": 15.0,
+		"Soda":   5.0,
+		"Salada":  10.0,
+	}
+
+	fmt.Println("\n Menu de preços:")
+	for item, preco := range menu {
+		fmt.Printf("%s: R$%.2f\n", item, preco)
+	}
 }
