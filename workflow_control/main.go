@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"time"
 )
 
 func main() {
@@ -42,5 +43,14 @@ func main() {
 
 	default:
 		fmt.Println("Valor inválido.")
+	}
+
+	// Usando if para identificar o ano de nascimento
+	anoAtual := time.Now().Year()
+	anoNascimento := anoAtual - idade
+	if anoNascimento >= 0 {
+		fmt.Printf("Você nasceu em %d\n", anoNascimento)
+	} else {
+		fmt.Println("Ano de nascimento inválido.")
 	}
 }
