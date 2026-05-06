@@ -26,6 +26,21 @@ func main() {
 	numeroDeNucleos := runtime.NumCPU() - 7 // Usando 1 núcleo a menos do que o total disponível
 	runtime.GOMAXPROCS(numeroDeNucleos)
 
+	var wgMain sync.WaitGroup
+	wgMain.Add(1)
+
+	//Função assíncrona para executar a tarefa
+	go executarTarefa(numeroDeNucleos, &wgMain)
+
+	wgMain.Wait()
+
+	//Tempo total de execução do programa
+	fim := time.Now().UnixMilli()
+	fmt.Printf("Tempo Total do Programa: %d ms\n", fim-inicio)
+}
+
+func executarTarefa(numeroDeNucleos int, wgMain *sync.WaitGroup) {
+	defer wgMain.Done()
 	fmt.Printf("Número de Núcleos Definidos para Uso: %d\n", numeroDeNucleos)
 
 	var wg sync.WaitGroup
@@ -52,8 +67,4 @@ func main() {
 	wg.Wait()
 	tempoTotalGoroutines := time.Since(inicioGoroutines)
 	fmt.Printf("Tempo Total das Goroutines: %d ms\n", tempoTotalGoroutines.Milliseconds())
-
-	fim := time.Now().UnixMilli()
-	fmt.Printf("Tempo Total do Programa: %d ms\n", fim-inicio)
-
 }
