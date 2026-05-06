@@ -29,8 +29,8 @@ func main() {
 	var wgMain sync.WaitGroup
 	wgMain.Add(1)
 
-	//Função assíncrona para executar a tarefa
-	go executarTarefa(numeroDeNucleos, &wgMain)
+	//Função síncrona para executar a tarefa
+	executarTarefa(numeroDeNucleos, &wgMain)
 
 	wgMain.Wait()
 
