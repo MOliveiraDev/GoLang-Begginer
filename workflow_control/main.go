@@ -33,17 +33,17 @@ func main() {
 	}
 
 	// Usando switch para verificar a idade
-	switch {
-	case idade >= 18:
-		fmt.Println("Você é maior de idade.")
-	case idade >= 13:
-		fmt.Println("Você é adolescente.")
-	case idade < 13:
-		fmt.Println("Você é criança.")
+	// switch {
+	// case idade >= 18:
+	// 	fmt.Println("Você é maior de idade.")
+	// case idade >= 13:
+	// 	fmt.Println("Você é adolescente.")
+	// case idade < 13:
+	// 	fmt.Println("Você é criança.")
 
-	default:
-		fmt.Println("Valor inválido.")
-	}
+	// default:
+	// 	fmt.Println("Valor inválido.")
+	// }
 
 	// Usando if para identificar o ano de nascimento
 	anoAtual := time.Now().Year()
@@ -53,4 +53,20 @@ func main() {
 	} else {
 		fmt.Println("Ano de nascimento inválido.")
 	}
+
+
+	// Usando for sobre Slice
+
+	series := []string{"Breaking Bad", "Game of Thrones", "Stranger Things"}
+	fmt.Println("Minhas séries favoritas:")
+	for i, serie := range series {
+		fmt.Printf("%d. %s\n", i+1, serie)
+	}
+
+	// Usando for para contar de 1 a 10
+	fmt.Println("Contando de 1 a 10:")
+	for i := 1; i <= 10; i++ {
+		fmt.Printf("%d ", i)
+	}
+	fmt.Println()
 }
