@@ -18,4 +18,14 @@ func main() {
 	// O '*' desreferencia o ponteiro, indo até o endereço para ler o valor real
 	fmt.Println("Valor no endereço 'nome1':", *m1)
 	fmt.Println("Valor no endereço 'nome2':", *m2)
+
+	// Atualizando o valor usando a função
+	atualizaNome(m1)
+
+	fmt.Println("Valor atualizado 'nome1':", nome1)
+}
+
+// Essa função recebe um ponteiro para string e atualiza o valor apontado para "Letícia"
+func atualizaNome(nome *string) {
+	*nome = "Letícia"
 }
